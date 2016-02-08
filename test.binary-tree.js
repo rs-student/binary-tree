@@ -53,6 +53,7 @@ describe('BinaryTree', () => {
 
 	describe('#insert(data)', () => {
 		var bt;
+		var btCopy;
 
 		beforeEach(() => {
 			bt = new BinaryTree();
@@ -67,6 +68,8 @@ describe('BinaryTree', () => {
 			bt.insert(6);
 			bt.insert(20);
 			bt.insert(7);
+
+			btCopy = JSON.parse(JSON.stringify(expectedBt));
 		});
 
 		it('creates new node with passed data and inserts it to correct place', () => {
@@ -81,26 +84,10 @@ describe('BinaryTree', () => {
 			bt.root.left.left.left.right.data.should.equal(7);
 			bt.root.left.right.left.data.should.equal(11);
 		});
-	});
 
-	describe('#insert2(data)', () => {
-		var bt;
-
-		beforeEach(() => {
-			bt = new BinaryTree();
-
-			bt.insert(13);
-			bt.insert(13);
-			bt.insert(10);
-			bt.insert(15);
-
-		});
-
-		it('creates new node with passed data and inserts correct', () => {
-			bt.root.data.should.equal(13);
-			bt.root.left.data.should.equal(10);
-			bt.root.right.data.should.equal(15);
-			
+		it('does nothing if tree already contains passed data', () => {
+			bt.insert(12);
+			bt.should.deep.equal(btCopy);
 		});
 	});
 
