@@ -26,4 +26,4 @@ class BinaryTree {
 	}
 }
 
-(global || window).Node = Node;
+(global || window).BinaryTree = BinaryTree;
