@@ -7,3 +7,5 @@ class Node {
 		this.right = right || null;
 	}
 }
+
+(global || window).Node = Node;
