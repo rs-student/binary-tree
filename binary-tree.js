@@ -25,3 +25,5 @@ class BinaryTree {
 
 	}
 }
+
+(global || window).Node = Node;
